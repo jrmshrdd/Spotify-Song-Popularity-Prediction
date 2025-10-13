@@ -74,6 +74,59 @@ Run and share the app URL.
 
 # License
 MIT License — feel free to use, learn from, and adapt this project with attribution.
+# HitCast — Spotify Song Hit Prediction
+**End-to-End ML App with Streamlit (optional Snowflake deployment)**  
+**License:** MIT
+
+> Predict whether a Spotify track will be a *hit* using core audio features. Train multiple models (Logistic Regression, Random Forest, XGBoost), evaluate them, and interact with predictions in a Streamlit dashboard. The same app can run locally or inside **Snowflake Streamlit Apps**.
+
+---
+
+## 📌 Table of Contents
+1. [Overview](#overview)  
+2. [Features](#features)  
+3. [Tech Stack](#tech-stack)  
+4. [Project Structure](#project-structure)  
+5. [Setup](#setup)  
+6. [Build Data & Train](#build-data--train)  
+7. [Run the App](#run-the-app)  
+8. [Results (Example)](#results-example)  
+9. [Deploy on Snowflake (Optional)](#deploy-on-snowflake-optional)  
+10. [Why This Project (For Recruiters)](#why-this-project-for-recruiters)  
+11. [Roadmap](#roadmap)  
+12. [License](#license)
+
+---
+
+## Overview
+**HitCast** frames hit prediction as a **binary classification** problem using four Spotify audio features — `danceability`, `energy`, `valence`, and `tempo`. The pipeline includes:
+
+- Robust data generation (uses real Spotify features if available; otherwise a **deterministic demo dataset** so the project always runs)
+- Model triage with **Logistic Regression**, **Random Forest**, and **XGBoost**
+- An **interactive Streamlit app** for what-if analysis and stakeholder demos
+- Optional deployment on **Snowflake Streamlit Apps** (no web server to manage)
+
+---
+
+## Features
+- 🧠 **Model comparison**: LR / RF / XGB probabilities side-by-side  
+- 🎚️ **Interactive sliders** for audio features  
+- 📊 **Top-100 vs All-data** benchmarks in-app  
+- 🔍 **Feature importance** (RF) for interpretability  
+- 🧪 **Always runnable**: synthetic fallback if Spotify access/region is limited
+
+---
+
+## Tech Stack
+- **Python 3.9+**, **pandas**, **numpy**  
+- **scikit-learn**, **xgboost**, **joblib**  
+- **Streamlit** (UI)  
+- *(Optional)* **spotipy** (Spotify data collection)  
+- *(Optional)* **Snowflake Streamlit Apps** (deployment)
+
+---
+
+## Project Structure
 
 
 
