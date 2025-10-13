@@ -55,31 +55,22 @@ HitCast/
 
 ---
 
-## Setup
-```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
-
-# (recommended) virtual env
-python -m venv .venv
-# mac/linux
-source .venv/bin/activate
-# windows
-# .venv\Scripts\activate
-
-pip install -r requirements.txt
-
----
-
-## Build Data And Train
+## Build Data
 Open and run the notebook:
-notebooks/01_build_dataset.ipynb
+`notebooks/01_build_dataset.ipynb`
 
 This will:
-Create data/raw_tracks.csv
-Train LR / RF / XGB
-Save artifacts to models/
-No Spotify keys? The notebook automatically uses a synthetic dataset with realistic distributions so training finishes without errors.
+- Create `data/raw_tracks.csv`
+- Save artifacts to `models/`
+- No Spotify keys? The notebook automatically uses a synthetic dataset with realistic distributions so training finishes quickly.
+
+----
+
+## Train Models
+The notebook will also:
+- Train Logistic Regression (LR), Random Forest (RF), and XGBoost (XGB) models
+- Save trained models to `models/`
+
 
 -----
 
@@ -101,7 +92,7 @@ Logistic Regression: acc 0.69, f1 0.78, roc_auc 0.79
 Random Forest: acc 0.77, f1 0.87, roc_auc 0.67
 XGBoost: acc 0.78, f1 0.87, roc_auc 0.59
 Takeaway: RF/XGB deliver strong F1/accuracy; LR is simpler and well-calibrated. The app surfaces all three so you can choose per use case.
------------
+---
 
 ## Deploy on Snowflake
 In Snowflake, go to Projects → Streamlit → + Streamlit App.
@@ -114,5 +105,16 @@ Share the generated app URL.
 The same app.py runs locally and in Snowflake. Dependencies are listed in requirements.txt.
 _______________
 
+## Setup
+```bash
+git clone https://github.com/<your-username>/<repo-name>.git
+cd <repo-name>
 
+# (recommended) virtual env
+python -m venv .venv
+# mac/linux
+source .venv/bin/activate
+# windows
+# .venv\Scripts\activate
 
+pip install -r requirements.txt
