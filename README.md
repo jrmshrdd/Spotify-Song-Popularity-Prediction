@@ -1,2 +1,2 @@
 # Spotify-Song-Popularity-Prediction
-End-to-end project that predicts song “hit” probability from audio features (danceability, energy, valence, tempo). Trains LR/RF/XGB, serves an interactive Streamlit dashboard, and includes a Snowflake-hosted deployment (Streamlit in Snowflake).
+A hands-on ML project that builds a small, production-style workflow end-to-end: data ingestion → feature engineering → model training (LR / RF / XGBoost) → interactive Streamlit dashboard → optional deployment on Snowflake Streamlit Apps.
