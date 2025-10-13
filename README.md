@@ -37,20 +37,20 @@
 
 ## Project Structure
 HitCast/
-├─ app.py # Streamlit dashboard
-├─ notebooks/
-│ └─ 01_build_dataset.ipynb # Build data + train models (deterministic fallback)
-├─ data/
-│ └─ raw_tracks.csv # Created by notebook (small demo)
-├─ models/
-│ ├─ model_logreg.joblib
-│ ├─ model_rf.joblib
-│ └─ model_xgb.joblib
-├─ .streamlit/
-│ └─ config.toml # (optional) theming
-├─ requirements.txt
-├─ .gitignore
-└─ README.md
+- app.py # Streamlit dashboard
+- notebooks/
+- └─ 01_build_dataset.ipynb # Build data + train models (deterministic fallback)
+- data/
+- └─ raw_tracks.csv # Created by notebook (small demo)
+- models/
+- ├─ model_logreg.joblib
+-├─ model_rf.joblib
+- └─ model_xgb.joblib
+- .streamlit/
+- └─ config.toml # (optional) theming
+- requirements.txt
+- .gitignore
+- README.md
 
 
 ---
@@ -76,33 +76,34 @@ The notebook will also:
 
 ## Run the App
 streamlit run app.py
-Open the URL Streamlit prints (usually http://localhost:8501).
-In the app you can:
-Move sliders for danceability, energy, valence, tempo
-See hit probability from LR / RF / XGB
-Compare to Top-100 and All-data averages
-Inspect feature importances (RF)
+- Open the URL Streamlit prints (usually http://localhost:8501).
+- In the app you can:
+- Move sliders for danceability, energy, valence, tempo
+- See hit probability from LR / RF / XGB
+- Compare to Top-100 and All-data averages
+- Inspect feature importances (RF)
 
 ------
 
 ## Results 
-(Metrics vary by dataset; below are representative demo values.)
-Class balance (hit=1): ~0.82
-Logistic Regression: acc 0.69, f1 0.78, roc_auc 0.79
-Random Forest: acc 0.77, f1 0.87, roc_auc 0.67
-XGBoost: acc 0.78, f1 0.87, roc_auc 0.59
+
+- Class balance (hit=1): ~0.82
+- Logistic Regression: acc 0.69, f1 0.78, roc_auc 0.79
+- Random Forest: acc 0.77, f1 0.87, roc_auc 0.67
+- XGBoost: acc 0.78, f1 0.87, roc_auc 0.59
 Takeaway: RF/XGB deliver strong F1/accuracy; LR is simpler and well-calibrated. The app surfaces all three so you can choose per use case.
+
 ---
 
 ## Deploy on Snowflake
-In Snowflake, go to Projects → Streamlit → + Streamlit App.
-Add these files as app assets (or stage them):
+- In Snowflake, go to Projects → Streamlit → + Streamlit App.
+- Add these files as app assets (or stage them):
 app.py
 data/raw_tracks.csv
 models/model_*.joblib
 Select a warehouse (e.g., XSMALL) and click Run.
 Share the generated app URL.
-The same app.py runs locally and in Snowflake. Dependencies are listed in requirements.txt.
+- The same app.py runs locally and in Snowflake. Dependencies are listed in requirements.txt.
 _______________
 
 ## Setup
