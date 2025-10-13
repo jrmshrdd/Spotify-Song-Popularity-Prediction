@@ -69,9 +69,9 @@ source .venv/bin/activate
 
 pip install -r requirements.txt
 
---------------
+---
 
-## Build Data & Train
+## Build Data And Train
 Open and run the notebook:
 notebooks/01_build_dataset.ipynb
 
