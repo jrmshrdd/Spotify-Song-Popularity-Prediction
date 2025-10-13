@@ -53,8 +53,66 @@ HitCast/
 └─ README.md
 
 
+---
 
+## Setup
+```bash
+git clone https://github.com/<your-username>/<repo-name>.git
+cd <repo-name>
 
+# (recommended) virtual env
+python -m venv .venv
+# mac/linux
+source .venv/bin/activate
+# windows
+# .venv\Scripts\activate
+
+pip install -r requirements.txt
+
+--------------
+
+## Build Data & Train
+Open and run the notebook:
+notebooks/01_build_dataset.ipynb
+
+This will:
+Create data/raw_tracks.csv
+Train LR / RF / XGB
+Save artifacts to models/
+No Spotify keys? The notebook automatically uses a synthetic dataset with realistic distributions so training finishes without errors.
+
+-----
+
+## Run the App
+streamlit run app.py
+Open the URL Streamlit prints (usually http://localhost:8501).
+In the app you can:
+Move sliders for danceability, energy, valence, tempo
+See hit probability from LR / RF / XGB
+Compare to Top-100 and All-data averages
+Inspect feature importances (RF)
+
+------
+
+## Results 
+(Metrics vary by dataset; below are representative demo values.)
+Class balance (hit=1): ~0.82
+Logistic Regression: acc 0.69, f1 0.78, roc_auc 0.79
+Random Forest: acc 0.77, f1 0.87, roc_auc 0.67
+XGBoost: acc 0.78, f1 0.87, roc_auc 0.59
+Takeaway: RF/XGB deliver strong F1/accuracy; LR is simpler and well-calibrated. The app surfaces all three so you can choose per use case.
+-----------
+
+## Deploy on Snowflake
+In Snowflake, go to Projects → Streamlit → + Streamlit App.
+Add these files as app assets (or stage them):
+app.py
+data/raw_tracks.csv
+models/model_*.joblib
+Select a warehouse (e.g., XSMALL) and click Run.
+Share the generated app URL.
+The same app.py runs locally and in Snowflake. Dependencies are listed in requirements.txt.
+_______________
 
 
 
