@@ -2,7 +2,7 @@
 **End-to-End ML App with Streamlit** 
 **Snowflake deployment**  
 **License:** MIT
-
+<img width="946" alt="Output_1" src="Image.jpg" />
 >Spotify Song Popularity Prediction is a production-style mini project that predicts the likelihood a Spotify track becomes a hit based on core audio features. It showcases the full DS workflow—data prep, model training (Logistic Regression, Random Forest, XGBoost), evaluation, and an interactive Streamlit dashboard—plus optional deployment on **Snowflake Streamlit Apps**.
 
 ---
